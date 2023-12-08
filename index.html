@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <form id="mapId">
+      <select class="select" id="select">
+        <option>Mapeamento de ID's</option>
+      </select>
+      <div class="switch-container">
+        <input type="checkbox" id="switch-markings" class="switch-checkbox" />
+        <label for="switch-markings" class="switch-label"></label>
+        <span class="switch-text">Mostrar marcações</span>
+      </div>
+      <div class="switch-container">
+        <input type="checkbox" id="switch-info" class="switch-checkbox" />
+        <label for="switch-info" class="switch-label"></label>
+        <span class="switch-text">Mostrar informações</span>
+      </div>
+      <button class="button" id="map">Mapear</button>
+      <div id="totalIds" class="hidden"></div>
+    </form>
+    <script src="dist/index.js"></script>
+  </body>
+</html>
