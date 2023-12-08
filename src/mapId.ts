@@ -77,6 +77,7 @@ const getIds = (mapId: IMapId): number => {
   bodyDiv.style.padding = '20px';
   bodyDiv.style.zIndex = '99999';
   bodyDiv.className = 'map-generator-modal';
+  bodyDiv.style.color = 'black';
   document.body.insertAdjacentElement('afterend', bodyDiv);
   // create markings
   const ids = document.querySelectorAll('[id]');
