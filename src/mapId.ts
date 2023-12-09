@@ -92,6 +92,7 @@ const getIds = (mapId: IMapId): number => {
     "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif";
   // Criando um elemento parágrafo para exibir o texto
   const contentParagraph = document.createElement('p');
+  contentParagraph.style.margin = '0px';
   bodyDiv.appendChild(contentParagraph);
 
   contentParagraph.textContent = 'Texto que será copiado';
@@ -109,6 +110,7 @@ const getIds = (mapId: IMapId): number => {
   copyButton.style.border = 'none'; // Removendo a borda
   copyButton.style.padding = '10px 15px'; // Adicionando espaçamento interno
   copyButton.style.cursor = 'pointer';
+  copyButton.style.marginTop = '10px';
   copyButton.addEventListener('click', () => {
     bodyDiv.appendChild(messageDiv);
     // Copiando o texto para a área de transferência usando a API Clipboard
@@ -125,7 +127,7 @@ const getIds = (mapId: IMapId): number => {
     navigator.clipboard
       .writeText(textToCopy)
       .then(() => {
-        messageDiv.textContent = 'Texto copiado!';
+        messageDiv.textContent = 'ID copiado!';
       })
       .catch(err => {
         messageDiv.textContent = `Erro ao copiar texto: ${err}`;
