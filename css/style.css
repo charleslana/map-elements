@@ -57,7 +57,7 @@ form {
   outline: none;
   border-radius: 5px;
   border: 1px solid #ddd;
-  background: url('../images/arrow_drop_down.png') no-repeat right center / 24px;
+  background: url('../images/arrow_drop_down.png') no-repeat right 10px center / 24px;
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -113,4 +113,14 @@ form {
 
 .switch-text {
   margin-left: 10px;
+}
+
+.clear-button {
+  background-color: lightgray;
+  color: black;
+  border-radius: 0;
+}
+
+.clear-button:hover {
+  background-color: lightgray;
 }
