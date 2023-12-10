@@ -62,7 +62,7 @@ const executeChromeScript = (tabId: number, mapId: IMapId): void => {
   );
 };
 
-const removeMarkingsAndModal = (): void => {
+const getIds = (mapId: IMapId): number => {
   const generatorMarkings = document.querySelectorAll('.map-generator-markings');
   generatorMarkings.forEach(parent => {
     parent.replaceWith(...parent.childNodes);
@@ -71,10 +71,6 @@ const removeMarkingsAndModal = (): void => {
   if (modal && modal.parentNode) {
     modal.parentNode.removeChild(modal);
   }
-};
-
-const getIds = (mapId: IMapId): number => {
-  removeMarkingsAndModal();
   // create modal
   const bodyDiv = document.createElement('div');
   bodyDiv.style.display = 'none';
