@@ -124,6 +124,9 @@ const getIds = (mapId: IMapId): number => {
       .writeText(textToCopy)
       .then(() => {
         messageDiv.textContent = 'ID copiado!';
+        setTimeout(() => {
+          bodyDiv.removeChild(messageDiv);
+        }, 2000);
       })
       .catch(err => {
         messageDiv.textContent = `Erro ao copiar texto: ${err}`;
