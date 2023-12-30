@@ -3,16 +3,23 @@
   "description": "Mapping website elements",
   "version": "1.0",
   "manifest_version": 3,
-  "options_page": "options.html",
+  "options_ui": {
+    "page": "options.html"
+  },
   "permissions": ["activeTab", "scripting"],
   "action": {
     "default_title": "Map Elements",
     "default_popup": "index.html"
   },
   "icons": {
-    "16": "images/map-elements.png",
-    "32": "images/map-elements.png",
-    "48": "images/map-elements.png",
-    "128": "images/map-elements.png"
+    "16": "images/map-elements-16.png",
+    "32": "images/map-elements-32.png",
+    "48": "images/map-elements-48.png",
+    "128": "images/map-elements-128.png"
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "map-elements@example.com"
+    }
   }
 }
