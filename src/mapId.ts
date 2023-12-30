@@ -71,7 +71,7 @@ const getIds = (mapId: IMapId): number => {
   if (modal && modal.parentNode) {
     modal.parentNode.removeChild(modal);
   }
-  // create modal
+
   const bodyDiv = document.createElement('div');
   bodyDiv.style.display = 'none';
   bodyDiv.style.position = 'fixed';
@@ -86,7 +86,6 @@ const getIds = (mapId: IMapId): number => {
   bodyDiv.style.color = 'black';
   bodyDiv.style.fontFamily =
     "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif";
-  // Criando um elemento parágrafo para exibir o texto
   const contentParagraph = document.createElement('p');
   contentParagraph.style.margin = '0px';
   bodyDiv.appendChild(contentParagraph);
@@ -97,27 +96,24 @@ const getIds = (mapId: IMapId): number => {
   messageDiv.style.marginTop = '5px';
   messageDiv.classList.add('copy-message');
 
-  // Adicionando o botão de copiar
   const copyButton = document.createElement('button');
   copyButton.textContent = 'Copiar';
-  copyButton.style.borderRadius = '5px'; // Adicionando border radius
-  copyButton.style.backgroundColor = 'lightgray'; // Cor de fundo clara
+  copyButton.style.borderRadius = '5px';
+  copyButton.style.backgroundColor = 'lightgray';
   copyButton.style.color = 'black';
-  copyButton.style.border = 'none'; // Removendo a borda
-  copyButton.style.padding = '10px 15px'; // Adicionando espaçamento interno
+  copyButton.style.border = 'none';
+  copyButton.style.padding = '10px 15px';
   copyButton.style.cursor = 'pointer';
   copyButton.style.marginTop = '10px';
   copyButton.addEventListener('click', () => {
     bodyDiv.appendChild(messageDiv);
-    // Copiando o texto para a área de transferência usando a API Clipboard
+
     const fullText = contentParagraph.textContent ?? '';
 
-    // Encontrando a posição do caractere "#" no texto
     const hashIndex = fullText.indexOf('#');
 
     let textToCopy = '';
     if (hashIndex !== -1 && hashIndex < fullText.length - 1) {
-      // Copiando apenas o texto após o caractere "#"
       textToCopy = fullText.substring(hashIndex);
     }
     navigator.clipboard
@@ -157,7 +153,7 @@ const getIds = (mapId: IMapId): number => {
   bodyDiv.appendChild(closeIcon);
 
   document.body.insertAdjacentElement('afterend', bodyDiv);
-  // create markings
+
   const ids = document.querySelectorAll('[id]');
   if (mapId.markingsChecked) {
     ids.forEach(id => {
@@ -169,7 +165,7 @@ const getIds = (mapId: IMapId): number => {
         id.parentNode.insertBefore(div, id);
       }
       div.appendChild(id);
-      // create info icon
+
       if (mapId.infoChecked) {
         const icon = document.createElement('img');
         icon.src = mapId.infoIcon;
@@ -181,7 +177,7 @@ const getIds = (mapId: IMapId): number => {
         icon.style.transform = 'translateY(-50%)';
         icon.style.cursor = 'pointer';
         icon.style.zIndex = '1';
-        // click icon
+
         icon.addEventListener('click', () => {
           const modal = document.querySelector('.map-generator-modal') as HTMLDivElement | null;
           if (modal) {
@@ -196,7 +192,7 @@ const getIds = (mapId: IMapId): number => {
       }
     });
   }
-  // get length
+
   return ids.length;
 };
 
@@ -246,7 +242,6 @@ const clearMap = async () => {
             tabId: tab.id,
           },
           func: () => {
-            // remove markings and modal
             const generatorMarkings = document.querySelectorAll('.map-generator-markings');
             generatorMarkings.forEach(parent => {
               parent.replaceWith(...parent.childNodes);
